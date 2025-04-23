@@ -1,0 +1,29 @@
+# Ignorar directorios de datos y modelos
+/archive/
+/results/
+/training_001/
+/training_002/
+
+# Ignorar entorno virtual de Python
+/venv/
+
+# Otros archivos comunes para ignorar
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.env
+.venv
+env/
+ENV/
+*.log
+
+# Archivos del sistema
+.DS_Store
+.idea/
+.vscode/
+
+# Archivos temporales
+*.swp
+*.swo
