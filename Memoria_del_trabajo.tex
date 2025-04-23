@@ -55,7 +55,15 @@
 
 % Título del documento
 \title{\Huge \textbf{Clasificación de Emociones con BERT}}
-\author{\Large Nombre y Apellidos}
+\author{
+    \Large Miguel Angel Licea Céspedes \\
+    \normalsize Universidad Politécnica de Valencia \\
+    \normalsize malicces@upv.edu.es
+    \and
+    \Large Julié Arianne Pérez Vive  \\
+    \normalsize Universidad Politécnica de Valencia \\
+    \normalsize japerez@upv.edu.es
+}
 \date{\today}
 
 \begin{document}
@@ -69,7 +77,7 @@
 
 El presente trabajo aborda el desafío de la detección y clasificación automática de emociones en textos mediante el uso de técnicas avanzadas de Procesamiento del Lenguaje Natural (PLN). Se ha desarrollado un sistema basado en el modelo BERT (Bidirectional Encoder Representations from Transformers) que permite identificar 28 emociones distintas en textos, así como agruparlas en las categorías emocionales básicas de Ekman.
 
-La investigación parte del conjunto de datos GoEmotions, que consiste en comentarios de Reddit anotados con múltiples emociones. Se implementó un modelo de clasificación multi-etiqueta utilizando BERT, que fue entrenado durante tres épocas con técnicas de preprocesamiento lingüístico como la lematización para mejorar la calidad de las predicciones. Los resultados muestran un rendimiento destacable en la identificación de emociones como "gratitud" (F1=0.908), "amor" (F1=0.764) y "admiración" (F1=0.742), mientras que otras emociones como "duelo" y "nerviosismo" resultaron más difíciles de detectar.
+La investigación parte del conjunto de datos GoEmotions, que consiste en comentarios de Reddit anotados con múltiples emociones. Se implementó un modelo de clasificación multi-etiqueta utilizando BERT, que fue entrenado durante tres épocas con técnicas de preprocesamiento lingüístico como la lematización para mejorar la calidad de las predicciones. Los resultados muestran un rendimiento destacable en la identificación de emociones como ``gratitud'' (F1=0.908), ``amor'' (F1=0.764) y ``admiraci\'on'' (F1=0.742), mientras que otras emociones como ``duelo'' y ``nerviosismo'' resultaron más difíciles de detectar.
 
 El sistema desarrollado se ha implementado además como una aplicación web interactiva utilizando Streamlit, permitiendo a los usuarios analizar textos en tiempo real y visualizar tanto las emociones detectadas como su distribución en categorías de Ekman. Esta herramienta tiene potenciales aplicaciones en análisis de sentimientos en redes sociales, servicio al cliente, psicología computacional y estudios de comportamiento humano en entornos digitales.
 
@@ -163,11 +171,11 @@ El punto de partida fue el estudio detallado del conjunto de datos GoEmotions, q
 \begin{itemize}
   \item Aproximadamente 58,000 comentarios de Reddit anotados manualmente
   \item Cada comentario puede estar asociado con múltiples emociones (clasificación multi-etiqueta)
-  \item 28 categorías emocionales distintas, incluyendo una categoría "neutral"
+  \item 28 categorías emocionales distintas, incluyendo una categoría ``neutral''
   \item División en conjuntos de entrenamiento, validación y prueba
 \end{itemize}
 
-Se realizó un análisis exploratorio para entender la distribución de las emociones en el dataset, identificando desbalances significativos. Por ejemplo, emociones como "gratitud", "admiración" y "alegría" están mucho más representadas que otras como "duelo", "nerviosismo" o "vergüenza". Este desbalance tendría impacto en el rendimiento del modelo.
+Se realizó un análisis exploratorio para entender la distribución de las emociones en el dataset, identificando desbalances significativos. Por ejemplo, emociones como ``gratitud'', ``admiración'' y ``alegría'' están mucho más representadas que otras como ``duelo'', ``nerviosismo'' o ``vergüenza''. Este desbalance tendría impacto en el rendimiento del modelo.
 
 \subsection{Diseño e Implementación del Modelo}
 
@@ -277,7 +285,7 @@ El sistema calcula la distribución de Ekman sumando las probabilidades de todas
 Para evaluar el modelo, se utilizó principalmente el F1-score por clase, adecuado para conjuntos de datos desequilibrados, además de la pérdida de validación. Los resultados mostraron variaciones significativas entre emociones:
 
 \begin{itemize}
-  \item Emociones con buen rendimiento (F1 > 0.75):
+  \item Emociones con buen rendimiento (F1 $>$ 0.75):
   \begin{itemize}
     \item Gratitud (0.908)
     \item Amor (0.764)
@@ -285,7 +293,7 @@ Para evaluar el modelo, se utilizó principalmente el F1-score por clase, adecua
     \item Diversión (0.784)
   \end{itemize}
   
-  \item Emociones con rendimiento medio (0.4 < F1 < 0.75):
+  \item Emociones con rendimiento medio (0.4 $<$ F1 $<$ 0.75):
   \begin{itemize}
     \item Alegría (0.468)
     \item Tristeza (0.496)
@@ -293,7 +301,7 @@ Para evaluar el modelo, se utilizó principalmente el F1-score por clase, adecua
     \item Neutral (0.647)
   \end{itemize}
   
-  \item Emociones difíciles de detectar (F1 < 0.2 o 0):
+  \item Emociones difíciles de detectar (F1 $<$ 0.2 ó 0):
   \begin{itemize}
     \item Duelo (0.000)
     \item Nerviosismo (0.000)
@@ -352,7 +360,7 @@ A continuación se muestran los F1-scores obtenidos para cada emoción, agrupado
 
 \begin{table}[htbp]
   \centering
-  \caption{Emociones con alto rendimiento (F1 > 0.7)}
+  \caption{Emociones con alto rendimiento (F1 $>$ 0.7)}
   \begin{tabular}{lc}
     \toprule
     \textbf{Emoción} & \textbf{F1-score} \\
@@ -367,7 +375,7 @@ A continuación se muestran los F1-scores obtenidos para cada emoción, agrupado
 
 \begin{table}[htbp]
   \centering
-  \caption{Emociones con rendimiento aceptable (0.5 < F1 < 0.7)}
+  \caption{Emociones con rendimiento aceptable (0.5 $<$ F1 $<$ 0.7)}
   \begin{tabular}{lc}
     \toprule
     \textbf{Emoción} & \textbf{F1-score} \\
@@ -383,7 +391,7 @@ A continuación se muestran los F1-scores obtenidos para cada emoción, agrupado
 
 \begin{table}[htbp]
   \centering
-  \caption{Emociones con rendimiento medio (0.3 < F1 < 0.5)}
+  \caption{Emociones con rendimiento medio (0.3 $<$ F1 $<$ 0.5)}
   \begin{tabular}{lc}
     \toprule
     \textbf{Emoción} & \textbf{F1-score} \\
@@ -399,7 +407,7 @@ A continuación se muestran los F1-scores obtenidos para cada emoción, agrupado
 
 \begin{table}[htbp]
   \centering
-  \caption{Emociones con bajo rendimiento (F1 < 0.3)}
+  \caption{Emociones con bajo rendimiento (F1 $<$ 0.3)}
   \begin{tabular}{lc}
     \toprule
     \textbf{Emoción} & \textbf{F1-score} \\
@@ -424,13 +432,13 @@ A continuación se muestran los F1-scores obtenidos para cada emoción, agrupado
 La variabilidad en el rendimiento está directamente relacionada con:
 \begin{enumerate}
   \item La frecuencia de cada emoción en el conjunto de entrenamiento
-  \item La ambigüedad inherente de ciertas emociones (ej. la distinción entre "annoyance" y "anger")
+  \item La ambigüedad inherente de ciertas emociones (ej. la distinción entre ``annoyance'' y ``anger'')
   \item La complejidad de las expresiones textuales asociadas a cada emoción
 \end{enumerate}
 
 \subsection{Distribución por Categorías de Ekman}
 
-Al agrupar las emociones en las categorías de Ekman, el modelo mostró un rendimiento más equilibrado. La representación consolidada mejoró la fiabilidad en casos donde emociones individuales eran difíciles de detectar. Por ejemplo, aunque "nervousness" obtuvo un F1 de 0, la categoría general "fear" alcanzó un F1 de 0.5778.
+Al agrupar las emociones en las categorías de Ekman, el modelo mostró un rendimiento más equilibrado. La representación consolidada mejoró la fiabilidad en casos donde emociones individuales eran difíciles de detectar. Por ejemplo, aunque ``nervousness'' obtuvo un F1 de 0, la categoría general ``fear'' alcanzó un F1 de 0.5778.
 
 Las categorías de Ekman con mejor rendimiento fueron:
 \begin{enumerate}
@@ -457,14 +465,14 @@ La aplicación de lematización como técnica de preprocesamiento mostró un imp
   \end{tabular}
 \end{table}
 
-El impacto fue particularmente notable en emociones con expresiones lingüísticas variadas como "remorse" (+21.3\%) y "optimism" (+5.2\%).
+El impacto fue particularmente notable en emociones con expresiones lingüísticas variadas como ``remorse'' (+21.3\%) y ``optimism'' (+5.2\%).
 
 \subsection{Análisis de Errores}
 
 Se identificaron principalmente tres tipos de errores:
 
 \begin{enumerate}
-  \item \textbf{Falsos negativos en emociones poco frecuentes}: Emociones como "grief", "pride" y "nervousness" rara vez fueron detectadas, incluso cuando estaban presentes.
+  \item \textbf{Falsos negativos en emociones poco frecuentes}: Emociones como ``grief'', ``pride'' y ``nervousness'' rara vez fueron detectadas, incluso cuando estaban presentes.
 
   \item \textbf{Confusión entre emociones relacionadas}: El modelo a menudo confundió pares de emociones semánticamente cercanas:
   \begin{itemize}
@@ -473,7 +481,7 @@ Se identificaron principalmente tres tipos de errores:
     \item Sorpresa vs. Realización
   \end{itemize}
 
-  \item \textbf{Detección excesiva de emociones dominantes}: Emociones como "gratitude" y "admiration" tendían a ser predichas con más frecuencia debido a su sobrerrepresentación en los datos de entrenamiento.
+  \item \textbf{Detección excesiva de emociones dominantes}: Emociones como ``gratitude'' y ``admiration'' tendían a ser predichas con más frecuencia debido a su sobrerrepresentación en los datos de entrenamiento.
 \end{enumerate}
 
 \subsection{Resultados de la Aplicación Web}
@@ -595,47 +603,11 @@ A nivel personal, este proyecto ha reforzado mi interés en la intersección ent
 
 En resumen, este trabajo no solo me ha permitido aplicar y expandir mis conocimientos técnicos, sino que también ha abierto mi perspectiva sobre las posibilidades y desafíos futuros en el campo del análisis emocional automatizado. Me siento satisfecho con los resultados obtenidos, consciente de las limitaciones del enfoque actual, y motivado para seguir explorando y contribuyendo a este fascinante campo de investigación.
 
-\chapter{Bibliografía}
-
-\begin{thebibliography}{99}
-
-\bibitem{demszky} Demszky, D., Movshovitz-Attias, D., Ko, J., Cowen, A., Nemade, G., \& Ravi, S. (2020). GoEmotions: A Dataset for Fine-Grained Emotion Classification. \textit{Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics}, 8932-8943. \url{https://doi.org/10.18653/v1/2020.acl-main.372}
-
-\bibitem{devlin} Devlin, J., Chang, M. W., Lee, K., \& Toutanova, K. (2019). BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. \textit{Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1}, 4171-4186. \url{https://doi.org/10.18653/v1/N19-1423}
-
-\bibitem{ekman1992} Ekman, P. (1992). An Argument for Basic Emotions. \textit{Cognition and Emotion}, 6(3-4), 169-200. \url{https://doi.org/10.1080/02699939208411068}
-
-\bibitem{wolf} Wolf, T., Debut, L., Sanh, V., Chaumond, J., Delangue, C., Moi, A., Cistac, P., Rault, T., Louf, R., Funtowicz, M., \& Brew, J. (2020). Transformers: State-of-the-Art Natural Language Processing. \textit{Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing: System Demonstrations}, 38-45. \url{https://doi.org/10.18653/v1/2020.emnlp-demos.6}
-
-\bibitem{paszke} Paszke, A., Gross, S., Massa, F., Lerer, A., Bradbury, J., Chanan, G., Killeen, T., Lin, Z., Gimelshein, N., Antiga, L., Desmaison, A., Köpf, A., Yang, E., DeVito, Z., Raison, M., Tejani, A., Chilamkurthy, S., Steiner, B., Fang, L., ... \& Chintala, S. (2019). PyTorch: An Imperative Style, High-Performance Deep Learning Library. \textit{Advances in Neural Information Processing Systems 32}, 8024-8035.
-
-\bibitem{bird} Bird, S., Klein, E., \& Loper, E. (2009). \textit{Natural Language Processing with Python}. O'Reilly Media.
-
-\bibitem{mohammad} Mohammad, S. M. (2022). Sentiment and Emotion Analysis for Social Media: A Survey. \textit{ACM Computing Surveys}, 55(2), Article 39. \url{https://doi.org/10.1145/3505516}
-
-\bibitem{mckinney} McKinney, W. (2010). Data Structures for Statistical Computing in Python. \textit{Proceedings of the 9th Python in Science Conference}, 51-56.
-
-\bibitem{harris} Harris, C. R., Millman, K. J., van der Walt, S. J., Gommers, R., Virtanen, P., Cournapeau, D., Wieser, E., Taylor, J., Berg, S., Smith, N. J., Kern, R., Picus, M., Hoyer, S., van Kerkwijk, M. H., Brett, M., Haldane, A., del Río, J. F., Wiebe, M., Peterson, P., ... \& Oliphant, T. E. (2020). Array programming with NumPy. \textit{Nature}, 585, 357-362. \url{https://doi.org/10.1038/s41586-020-2649-2}
-
-\bibitem{pedregosa} Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M., \& Duchesnay, É. (2011). Scikit-learn: Machine Learning in Python. \textit{Journal of Machine Learning Research}, 12, 2825-2830.
-
-\bibitem{tang} Tang, D., Wei, F., Yang, N., Zhou, M., Liu, T., \& Qin, B. (2014). Learning Sentiment-Specific Word Embedding for Twitter Sentiment Classification. \textit{Proceedings of the 52nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)}, 1555-1565. \url{https://doi.org/10.3115/v1/P14-1146}
-
-\bibitem{plutchik} Plutchik, R. (2001). The Nature of Emotions: Human emotions have deep evolutionary roots, a fact that may explain their complexity and provide tools for clinical practice. \textit{American Scientist}, 89(4), 344-350.
-
-\bibitem{hunter} Hunter, J. D. (2007). Matplotlib: A 2D Graphics Environment. \textit{Computing in Science \& Engineering}, 9(3), 90-95. \url{https://doi.org/10.1109/MCSE.2007.55}
-
-\bibitem{loper} Loper, E., \& Bird, S. (2002). NLTK: The Natural Language Toolkit. \textit{Proceedings of the ACL Workshop on Effective Tools and Methodologies for Teaching Natural Language Processing and Computational Linguistics}, 63-70. \url{https://doi.org/10.3115/1118108.1118117}
-
-\bibitem{ekman1971} Ekman, P., \& Friesen, W. V. (1971). Constants across cultures in the face and emotion. \textit{Journal of Personality and Social Psychology}, 17(2), 124-129. \url{https://doi.org/10.1037/h0030377}
-
-\end{thebibliography}
-
 \chapter{Enlace al Código Implementado}
 
 El código fuente completo de este proyecto está disponible en el siguiente repositorio de GitHub:
 
-\url{https://github.com/username/emotion-classifier-bert}
+\url{https://github.com/miglcesp01/Proyecto-ILN}
 
 \section{Estructura del Repositorio}
 
@@ -643,21 +615,17 @@ El repositorio está organizado de la siguiente manera:
 
 \begin{lstlisting}
 emotion-classifier-bert/
-├── app.py                      # Aplicación web Streamlit
-├── emotion_classifier.py       # Implementación principal del clasificador
-├── data/                       # Datos de entrenamiento y evaluación
-│   ├── emotions.txt            # Lista de emociones
-│   ├── ekman_mapping.json      # Mapeo de emociones a categorías de Ekman
-│   ├── train.tsv               # Datos de entrenamiento
-│   ├── dev.tsv                 # Datos de validación
-│   └── test.tsv                # Datos de prueba
-├── archive/                    # Scripts auxiliares y recursos adicionales
-│   ├── analyze_data.py         # Análisis exploratorio de datos
-│   ├── calculate_metrics.py    # Cálculo detallado de métricas
-│   └── data/                   # Datos adicionales y de soporte
-└── training_002/               # Modelos entrenados
-    ├── goemotions_bert_model_lemma.pt        # Modelo con lematización
-    └── goemotions_bert_model_dev_lemma.pt    # Versión de desarrollo
+|-- app.py                      # Streamlit web application
+|-- emotion_classifier.py       # Main classifier implementation
+|-- data/                       # Training and evaluation data
+|   |-- emotions.txt            # List of emotions
+|   |-- ekman_mapping.json      # Mapping of emotions to Ekman categories 
+|   |-- train.tsv               # Training data
+|   |-- dev.tsv                 # Validation data
+|   |-- test.tsv                # Test data
+|-- training/                   # Trained models
+    |-- goemotions_bert_model_lemma.pt        # Model with lemmatization
+    |-- goemotions_bert_model_dev_lemma.pt    # Development version
 \end{lstlisting}
 
 \section{Instrucciones de Ejecución}
@@ -668,18 +636,15 @@ Para ejecutar la aplicación web de clasificación de emociones:
   \item Clonar el repositorio:
   \begin{lstlisting}[language=bash]
 git clone https://github.com/username/emotion-classifier-bert.git
-cd emotion-classifier-bert
-  \end{lstlisting}
+cd emotion-classifier-bert\end{lstlisting}
 
   \item Instalar las dependencias:
   \begin{lstlisting}[language=bash]
-pip install -r requirements.txt
-  \end{lstlisting}
+pip install -r requirements.txt\end{lstlisting}
 
   \item Ejecutar la aplicación web:
   \begin{lstlisting}[language=bash]
-streamlit run app.py
-  \end{lstlisting}
+streamlit run app.py\end{lstlisting}
 
   \item Acceder a la aplicación a través del navegador web en la dirección indicada (generalmente http://localhost:8501).
 \end{enumerate}
@@ -691,5 +656,24 @@ python emotion_classifier.py
 \end{lstlisting}
 
 El código está documentado con comentarios detallados para facilitar su comprensión y modificación.
+
+
+\begin{thebibliography}{7}
+
+\bibitem{devlin2019} Devlin, Jacob; Chang, Ming-Wei; Lee, Kenton; and Toutanova, Kristina. 2019. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. In Proceedings of NAACL-HLT 2019. \url{https://arxiv.org/abs/1810.04805}.
+
+\bibitem{demszky2020} Demszky, Dorottya; Movshovitz-Attias, Dana; Ko, Jeongwoo; Cowen, Alan; Nemade, Gaurav; and Ravi, Sujith. 2020. GoEmotions: A Dataset of Fine-Grained Emotions. In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics (ACL 2020). \url{https://aclanthology.org/2020.acl-main.372}.
+
+\bibitem{zhang2014} Zhang, Min-Ling; and Zhou, Zhi-Hua. 2014. A Review on Multi-Label Learning Algorithms. IEEE Transactions on Knowledge and Data Engineering, 26(8):1819–1837. \url{https://doi.org/10.1109/TKDE.2013.39}.
+
+\bibitem{nltkDoc} NLTK Project. 2023. NLTK 3.8 Documentation. NLTK Project website. \url{https://www.nltk.org/}.
+
+\bibitem{pytorchDoc} PyTorch. 2023. PyTorch Documentation. PyTorch website. \url{https://pytorch.org/docs/}.
+
+\bibitem{hfDoc} Hugging Face. 2023. Transformers Library Documentation. Hugging Face website. \url{https://huggingface.co/docs/transformers/}.
+
+\bibitem{streamlitDoc} Streamlit. 2023. Streamlit Documentation. Streamlit website. \url{https://docs.streamlit.io/}.
+
+\end{thebibliography}
 
 \end{document}
