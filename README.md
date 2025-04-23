@@ -33,17 +33,6 @@ Para ejecutar este proyecto, se recomienda:
 1. Crear un entorno virtual de Python
 2. Instalar las dependencias necesarias (próximamente se incluirá un archivo requirements.txt)
 
-## Uso
-
-```python
-# Ejemplo de uso del clasificador de emociones
-from emotion_classifier import EmotionClassifier
-
-classifier = EmotionClassifier(model_path="training_001/goemotions_bert_model.pt")
-emotions = classifier.predict("Me siento muy feliz por los resultados obtenidos")
-print(emotions)
-```
-
 ## Contribuciones
 
 Este proyecto forma parte de un trabajo académico para la asignatura de ILN (Introducción al Lenguaje Natural).
